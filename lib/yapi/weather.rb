@@ -1,5 +1,4 @@
-path = File.expand_path('../', __FILE__)
-require File.join(path, 'client.rb')
+require "yapi/client"
 require 'open-uri'
 require 'json'
 

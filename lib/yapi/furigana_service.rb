@@ -1,10 +1,9 @@
-path = File.expand_path('../', __FILE__)
-require File.join(path, 'client.rb')
+require "yapi/client"
 require 'open-uri'
 require 'json'
 
 module Yapi
-  class DAService
+  class FuriganaService
     attr_accessor :config
     
     def initialize(api_key)
@@ -18,8 +17,8 @@ module Yapi
       end
     end
     
-    def parse sentence
-      req_url = "http://jlp.yahooapis.jp/DAService/V1/parse?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&sentence=#{sentence}"
+    def furigana sentence
+      req_url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&sentence=#{sentence}"
       return @client.xml_to_json(open(URI.encode(req_url)).read)[:ResultSet][:Result]
     end
   end

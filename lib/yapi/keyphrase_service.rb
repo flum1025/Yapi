@@ -1,10 +1,9 @@
-path = File.expand_path('../', __FILE__)
-require File.join(path, 'client.rb')
+require "yapi/client"
 require 'open-uri'
 require 'json'
 
 module Yapi
-  class KouseiService
+  class KeyphraseService
     attr_accessor :config
     
     def initialize(api_key)
@@ -18,8 +17,8 @@ module Yapi
       end
     end
     
-    def kousei sentence
-      req_url = "http://jlp.yahooapis.jp/KouseiService/V1/kousei?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&sentence=#{sentence}"
+    def extract sentence
+      req_url = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&sentence=#{sentence}"
       return @client.xml_to_json(open(URI.encode(req_url)).read)[:ResultSet][:Result]
     end
   end

@@ -1,8 +1,9 @@
 # Coding: UTF-8
-path = File.expand_path('../', __FILE__)
-require File.join(path, 'yapi/yapi.rb')
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'yapi'
 
-api_key = "dj0zaiZpPXJCT0JKcktJNlVBQyZzPWNvbnN1bWVyc2VjcmV0Jng9YTA-"
+api_key = ""
 
 maservice = Yapi::MAService.new(api_key)
 maservice.configure config={
