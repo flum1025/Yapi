@@ -2,7 +2,10 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yapi`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+rubyで書かれたYahooAPIのクライアントライブラリです。
+apiについての説明は[ドキュメント一覧](http://developer.yahoo.co.jp/sitemap/)へ  
+公式サイトは[Yahoo!デベロッパーネットワーク](http://developer.yahoo.co.jp/)  
+質問等ありましたらTwitter:[@flum_](https://twitter.com/flum_)までお願いします。
 
 ## Installation
 
@@ -22,7 +25,50 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+まず、公式サイトからAPIキーを取得してください。  
+形態素解析する場合はrequireしてから
+
+```
+maservice = Yapi::MAService.new(api_key)
+puts maservice.parse "庭には２羽にわとりがいる"
+```
+
+たったこれだけで形態素解析ができます。   
+詳しいパラメータ等は、公式サイトを参照して、
+```
+maservice.configure config={  
+:results=>"uniq"  
+}  
+```
+の様な感じでセットしてください。
+
+##Supported APIs
+
+>テキスト解析  
+
+>>日本語形態素解析  
+
+>>かな漢字変換  
+
+>>ルビ振り  
+
+>>校正支援  
+
+>>日本語係り受け解析  
+
+>>キーフレーズ抽出  
+
+>地図・地域情報 
+
+>>Yahoo!ジオコーダAPI  
+
+>>Yahoo!リバースジオコーダAPI  
+
+>気象情報API  
+
+>場所情報API    
+
+>コンテンツジオコーダAPI  
 
 ## Development
 
