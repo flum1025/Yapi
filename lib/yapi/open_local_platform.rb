@@ -19,7 +19,7 @@ module Yapi
       end
       
       def geoCoder
-        req_url = "http://geo.search.olp.yahooapis.jp/OpenLocalPlatform/V1/geoCoder?appid=#{@client.get_api_key}#{@client.build_url(self.config)}"
+        req_url = "https://map.yahooapis.jp/geocode/V1/geoCoder?appid=#{@client.get_api_key}#{@client.build_url(self.config)}"
         return @client.xml_to_json(open(URI.encode(req_url)).read)
       end
     end
@@ -39,7 +39,7 @@ module Yapi
       end
       
       def geoCoder lat,lon
-        req_url = "http://reverse.search.olp.yahooapis.jp/OpenLocalPlatform/V1/reverseGeoCoder?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&lat=#{lat}&lon=#{lon}"
+        req_url = "https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&lat=#{lat}&lon=#{lon}"
         return @client.xml_to_json(open(URI.encode(req_url)).read)
       end
     end

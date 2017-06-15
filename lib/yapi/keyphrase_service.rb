@@ -18,7 +18,7 @@ module Yapi
     end
     
     def extract sentence
-      req_url = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&sentence=#{sentence}"
+      req_url = "https://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&sentence=#{sentence}"
       return @client.xml_to_json(open(URI.encode(req_url)).read)[:ResultSet][:Result]
     end
   end
