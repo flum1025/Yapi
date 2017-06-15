@@ -59,7 +59,7 @@ module Yapi
       end
       
       def contentsGeoCoder query
-        req_url = "http://contents.search.olp.yahooapis.jp/OpenLocalPlatform/V1/contentsGeoCoder?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&query=#{query}"
+        req_url = "https://map.yahooapis.jp/geocode/cont/V1/contentsGeoCoder?appid=#{@client.get_api_key}#{@client.build_url(self.config)}&query=#{query}"
         return @client.xml_to_json(open(URI.encode(req_url)).read)
       end
     end
